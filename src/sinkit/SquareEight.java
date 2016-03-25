@@ -7,8 +7,9 @@ package sinkit;
 
 /**
  *
- * @author miika
+ * @author mcparni
  */
+
 public class SquareEight extends Ship {
     public SquareEight() {
         System.out.println("Ship SQ8.");

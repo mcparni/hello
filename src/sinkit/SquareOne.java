@@ -7,7 +7,7 @@ package sinkit;
 
 /**
  *
- * @author miika
+ * @author mcparni
  */
 public class SquareOne extends Ship {
     public SquareOne() {
