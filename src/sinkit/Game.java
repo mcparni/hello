@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package sinkit;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 
 /**
  *
@@ -19,5 +23,12 @@ public class Game {
         SquareFour littleOne = new SquareFour();
         SquareTwo tinyOne = new SquareTwo();
         SquareOne microOne = new SquareOne();
+        
+        JFrame gameFrame = new JFrame("Sink-it");
+        gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameFrame.getContentPane().add(tinyOne.makeShip());
+        gameFrame.setSize(1024,576);
+        gameFrame.setVisible(true);
+        
     }
 }
