@@ -17,16 +17,13 @@ public class Game {
     
     public Game() {
         System.out.println("Game init");
-        Board board = new Board();
-        SquareEight bigOne = new SquareEight();
-        SquareSix mediumOne = new SquareSix();
-        SquareFour littleOne = new SquareFour();
-        SquareTwo tinyOne = new SquareTwo();
-        SquareOne microOne = new SquareOne();
+        Board board = new Board();        
+        Ship t = new Ship();
         
         JFrame gameFrame = new JFrame("Sink-it");
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameFrame.getContentPane().add(tinyOne.makeShip());
+        
+        gameFrame.getContentPane().add(t.Ship(2));
         gameFrame.setSize(1024,576);
         gameFrame.setVisible(true);
         
