@@ -16,6 +16,10 @@ public class Board {
     private final Color borderGrey = new Color(242, 242, 242);
     private GridBagConstraints c;
 
+    /**
+    * Constructs a Board Class. 
+    * Makes a board for boats. 13 x 12 squares of each 50 x 50 pixels in size.
+    */
     public Board() {
         System.out.println("Board initialized");
         this.board = new JPanel();
@@ -46,14 +50,28 @@ public class Board {
             }
         }
     }
+    
+    /**
+    * Adds a Ship to the board 
+    * @param type A ship's type: 1,2,4,6 or 8.
+    * @param x position in x axis from left to right.
+    * @param y position in y axis from top to bottom.
+    */
     public void addShip(int type, int x, int y) {
-        // No checks yet whether the x and y values are valid
+        
+        if(x > 13 || x < 0) {
+            x = 1;
+        }
+        
+        if(y > 11 || y < 0) {
+            y = 1;
+        }
         
         Ship t = new Ship();
         t.buildShip(type);
                 
-        c.gridwidth = t.getShipWidth();
-        c.gridheight = t.getShipHeight();
+        c.gridwidth = t.getColumns();
+        c.gridheight = t.getRows();
     
         c.gridx = x;
         c.gridy = y;
@@ -61,7 +79,9 @@ public class Board {
         this.board.add(t.getShip(), c, 0);
     }
     
-    
+    /**
+    * @return JPanel of this board.
+    */
     public JPanel getBoard() {
         return this.board;
     }

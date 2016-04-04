@@ -15,11 +15,14 @@ public class Ship {
     private int cols = 1;
     private int rows = 1;
     private int shipType = 1;
-    private JPanel ship;
-    // squareOne green;
-    private Color color = new Color(176, 255, 164);
-
+    private final JPanel ship;
+    private Color color;
     
+    /**
+    * Constructs a Ship Class. 
+    * Ship Class major component is a type of JPanel.
+    * By default the ship is of type 1 which is one square of size (50x50px).
+    */
     public Ship() {
         this.color = new Color(176, 255, 164);
         this.cols = 1;   
@@ -28,44 +31,49 @@ public class Ship {
         ship = new JPanel();
         
     }
-    
+    /**
+    * @return how many squares of space current ship allocates in x axis.
+    */
     public int getColumns() {
         return this.cols;
     }
-    
+    /**
+    * @return how many squares of space current ship allocates in y axis.
+    */
     public int getRows() {
         return this.rows;
     }
-    
+    /**
+    * @return RGB color value of current ship
+    */
     public Color getColor() {
         return this.color;
     }
-    
+    /**
+    * @return current ship type. Can be 1,2,4,6 or 8.
+    */
     public int getShipType() {
         return this.shipType;
     }
-    
+    /**
+    * @return how many pixels does one square allocate.
+    */
     public int getSquareSize() {
         return this.STEP;
     }
-    
-    public int getShipWidth() {
-        return this.cols;
-    }
-    
-    public int getShipHeight() {
-        return this.rows;
-    }
-    
+    /**
+    * @return returns a JPanel (this Ship class).
+    */
     public JPanel getShip() {
         return this.ship;
     }
     
     /**
-     @param type = valid values(1,2,4,6,8) defaults to 1
-     * 
-     * 
+     * Builds a ship of given type as a parameter.
+     * @param type many squares of space ship takes
+     * on a board grid. Valid values(1,2,4,6,8) defaults to 1
      */
+   
     public void buildShip(int type) {
         
         switch(type) {
@@ -117,7 +125,7 @@ public class Ship {
         int w = this.cols * STEP;
         int h = this.rows * STEP;
         Dimension d = new Dimension(w, h);
-        this.ship.setSize(w, h);
+        this.ship.setSize(d);
         this.ship.setMinimumSize(d);
         this.ship.setPreferredSize(d);
         
@@ -144,6 +152,12 @@ public class Ship {
             }
         }
     }
+    /**
+     * Adds one square of colored label to Ship container.
+     * This is called equal amount of times that a ship has squares.
+     * To be used later to indicate hits.
+     * @return square of JLabel type.
+     */
     private JLabel addShipBlock() {
         
         JLabel square = new JLabel("");
